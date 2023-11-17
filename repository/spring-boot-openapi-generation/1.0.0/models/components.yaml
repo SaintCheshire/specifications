@@ -1,0 +1,20 @@
+openapi: 3.0.3
+info:
+  title: Поля моделей API SomeService
+  version: 1.0.1
+paths:
+  /:
+components:
+  schemas:
+    id:
+      description: Какой-нибудь важный идентификатор
+      type: string
+      example: "1234"
+    code:
+      description: Не менее важный код
+      type: string
+      example: "4321"
+    errorMessage:
+      description: Описание ошибки при обращении к сервису
+      type: string
+      example: "Сервис временно недоступен"

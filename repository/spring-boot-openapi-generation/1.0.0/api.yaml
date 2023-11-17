@@ -1,0 +1,36 @@
+openapi: 3.0.3
+info:
+  title: API сервиса spring-boot-openapi-generation
+  version: 1.0.1
+servers:
+  - url: http://localhost:8080
+  - url: http://url-development.ru/spring-boot-openapi-generation
+  - url: http://url-preproduction.ru/spring-boot-openapi-generation
+  - url: http://url-production.ru/spring-boot-openapi-generation
+tags:
+  - name: SpringBootOpenApiGeneration
+    description: Spring boot openapi generation service API
+paths:
+  /api/v1/some-endpoint:
+    post:
+      tags:
+        - SpringBootOpenApiGeneration
+      summary: Описание логики спрятанной за эндпоинтом
+      operationId: someEndpoint
+      requestBody:
+        $ref: 'models/some-endpoint.yaml#/components/requestBodies/SomeEndpointRequest'
+      responses:
+        '200':
+          description: Логика успешно выполнена
+        '400':
+          description: Нарушение контракта
+          content:
+            application/json:
+              schema:
+                $ref: 'models/some-endpoint.yaml#/components/schemas/SomeEndpointErrorResponse'
+        '500':
+          description: Какая-то страшная внутренняя ошибка
+          content:
+            application/json:
+              schema:
+                $ref: 'models/some-endpoint.yaml#/components/schemas/SomeEndpointErrorResponse'

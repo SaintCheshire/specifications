@@ -1,0 +1,30 @@
+openapi: 3.0.3
+info:
+  title: Модели запросов и ответов эндпоинта some-endpoint
+  version: 1.0.1
+paths:
+  /:
+components:
+  schemas:
+    SomeEndpointErrorResponse:
+      description: Ответ при ошибке
+      type: object
+      properties:
+        errorMessage:
+          $ref: 'components.yaml#/components/schemas/errorMessage'
+  requestBodies:
+    SomeEndpointRequest:
+      description: Тело запроса на выполнение какой-то логики
+      required: true
+      content:
+        application/json:
+          schema:
+            required:
+               - id
+               - code
+            type: object
+            properties:
+              id:
+                $ref: 'components.yaml#/components/schemas/id'
+              code:
+                $ref: 'components.yaml#/components/schemas/code'
